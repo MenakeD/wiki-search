@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Hoefler;
+  src: url(../public/fonts/Hoefler-Text-Regular/Hoefler\ Text\ Regular.ttf);
+}
