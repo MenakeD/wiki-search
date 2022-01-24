@@ -1,20 +1,15 @@
 import Layout from '../components/common/Layout'
 import Container from '../components/common/Container'
-import { useTheme } from 'next-themes'
+import ThemeToggle from '../components/common/ThemeToggle'
 const Home = () => {
-  const { theme, setTheme } = useTheme()
-
   return (
     <Layout title='Wiki Search'>
       <Container>
-        <h1
-          onClick={() => {
-            setTheme(theme === 'dark' ? 'light' : 'dark')
-          }}
-          className='dark:text-white-base text-black cursor-pointer '
-        >
-          Home page
-        </h1>
+        <section className='py-8'>
+          <div className='flex justify-end'>
+            <ThemeToggle />
+          </div>
+        </section>
       </Container>
     </Layout>
   )

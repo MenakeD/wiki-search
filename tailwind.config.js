@@ -16,6 +16,7 @@ module.exports = {
           base: '#FFFEFE',
           dark: '#F1F1F1',
         },
+        black: '#383838',
         dark: {
           background: {
             secondary: '#220065',
