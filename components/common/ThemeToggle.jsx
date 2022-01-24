@@ -27,9 +27,9 @@ const ThemeToggle = () => {
             </>
           ) : (
             <>
-              <BsSunFill className='text-xl dark:text-white-dark shadow-sm ' />
+              <BsSunFill className='text-xl text-black shadow-sm ' />
               <BsFillCircleFill
-                className='text-2xl dark:text-white-base shadow-sm  cursor-pointer '
+                className='text-2xl text-black shadow-sm  cursor-pointer '
                 onClick={() => {
                   setTheme('dark')
                 }}
