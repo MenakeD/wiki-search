@@ -4,7 +4,7 @@ import InputTag from '../common/InputTag'
 import Button from '../common/Button'
 import { useForm } from 'react-hook-form'
 
-const HeroSection = ({ setShow }) => {
+const HeroSection = ({ setShow, setSearch }) => {
   const {
     register,
     handleSubmit,
@@ -13,6 +13,7 @@ const HeroSection = ({ setShow }) => {
 
   const onSubmit = (data) => {
     console.log(data)
+    setSearch(data.search)
     setShow(true)
   }
 
@@ -22,7 +23,11 @@ const HeroSection = ({ setShow }) => {
       <h1 className='font-hoelfer text-5xl py-8 dark:text-white-base text-black '>
         Wiki Search
       </h1>
-      <form className='py-8 flex space-x-4' onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className='py-8 flex space-x-4'
+        onSubmit={handleSubmit(onSubmit)}
+        autoComplete='off'
+      >
         <InputTag
           placeholder='Search here'
           register={register}
