@@ -39,7 +39,7 @@ module.exports = {
         light: {
           background: {
             secondary: '#FFFEFE',
-            primary: '#F5F4F4',
+            primary: '#F2F1F1',
           },
           button: {
             primary: '#C748ED',
@@ -48,9 +48,9 @@ module.exports = {
           text: {
             result: {
               heading: '#5A0AF1',
-              link: '#BF3EE5',
-              description: '#6B6A6A',
-              date: '#818181',
+              link: '#B339D8',
+              description: '#656464',
+              date: '#767676',
             },
           },
           shadow: '#000000',

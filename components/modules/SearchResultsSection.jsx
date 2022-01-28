@@ -43,7 +43,7 @@ const SearchResultsSection = ({ search }) => {
             type='text'
             errors={errors}
           />
-          <Button type='submit'>
+          <Button type='submit' width=''>
             <p className='text-white-base'>Search</p>
           </Button>
         </form>

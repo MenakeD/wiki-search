@@ -12,9 +12,11 @@ const HeroSection = ({ setShow, setSearch }) => {
   } = useForm()
 
   const onSubmit = (data) => {
-    console.log(data)
-    setSearch(data.search)
-    setShow(true)
+    if (data.search) {
+      console.log(data)
+      setSearch(data.search)
+      setShow(true)
+    }
   }
 
   return (
@@ -35,7 +37,7 @@ const HeroSection = ({ setShow, setSearch }) => {
           type='text'
           errors={errors}
         />
-        <Button type='submit'>
+        <Button type='submit' width=''>
           <p className='text-white-base'>Search</p>
         </Button>
       </form>
