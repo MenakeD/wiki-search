@@ -32,6 +32,7 @@ module.exports = {
               link: '#DC65FF',
               description: '#ECE8E8',
               date: '#CACACA',
+              highlight: '#ECADFF',
             },
           },
           shadow: '#8A8DFE',

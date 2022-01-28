@@ -3,10 +3,10 @@ import Image from 'next/image'
 import InputTag from '../common/InputTag'
 import Button from '../common/Button'
 import { useForm } from 'react-hook-form'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import SearchResults from './SearchResults'
 
-const SearchResultsSection = ({ search }) => {
+const SearchResultsSection = ({ search, setSearch }) => {
   const {
     register,
     handleSubmit,
@@ -14,13 +14,34 @@ const SearchResultsSection = ({ search }) => {
     formState: { errors },
   } = useForm()
 
+  const [totalHits, setTotalHits] = useState(0)
+  const [results, setResults] = useState()
+
+  useEffect(() => {
+    const getResults = async () => {
+      const request =
+        'https://en.wikipedia.org/w/api.php' +
+        `?origin=*&action=query&list=search&srsearch=${search}&format=json&srlimit=10`
+
+      const response = await fetch(request)
+      if (response.ok) {
+        const results = await response.json()
+        setTotalHits(results.query.searchinfo.totalhits)
+        console.log('r: ', results.query.search)
+        setResults(results.query.search)
+      }
+    }
+
+    console.log('s: ', search)
+    getResults()
+  }, [search])
+
   useEffect(() => {
     reset({ search: search })
   }, [reset, search])
 
   const onSubmit = (data) => {
-    console.log(data)
-    setShow(true)
+    setSearch(data.search)
   }
   return (
     <section>
@@ -49,7 +70,7 @@ const SearchResultsSection = ({ search }) => {
         </form>
       </div>
       <div>
-        <SearchResults />
+        <SearchResults totalHits={totalHits} results={results} />
       </div>
     </section>
   )

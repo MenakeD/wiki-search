@@ -6,3 +6,9 @@
   font-family: Hoefler;
   src: url(../public/fonts/Hoefler-Text-Regular/Hoefler\ Text\ Regular.ttf);
 }
+
+@layer components {
+  .searchmatch {
+    @apply font-bold dark:text-dark-text-result-highlight text-black;
+  }
+}

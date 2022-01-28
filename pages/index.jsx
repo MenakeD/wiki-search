@@ -18,7 +18,7 @@ const Home = () => {
           {!isSearched ? (
             <HeroSection setShow={setIsSearched} setSearch={setSearch} />
           ) : (
-            <SearchResultsSection search={search} />
+            <SearchResultsSection search={search} setSearch={setSearch} />
           )}
         </section>
       </Container>

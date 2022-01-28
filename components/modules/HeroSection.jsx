@@ -13,7 +13,6 @@ const HeroSection = ({ setShow, setSearch }) => {
 
   const onSubmit = (data) => {
     if (data.search) {
-      console.log(data)
       setSearch(data.search)
       setShow(true)
     }
