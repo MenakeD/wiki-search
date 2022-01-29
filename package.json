@@ -9,6 +9,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "dayjs": "^1.10.7",
     "next": "^12.0.8",
     "next-themes": "^0.0.15",
     "react": "^17.0.2",

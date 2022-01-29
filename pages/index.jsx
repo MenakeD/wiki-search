@@ -8,17 +8,21 @@ import SearchResultsSection from '../components/modules/SearchResultsSection'
 const Home = () => {
   const [isSearched, setIsSearched] = useState(false)
   const [search, setSearch] = useState('')
+
   return (
     <Layout title='Wiki Search'>
       <Container>
-        <section className='py-8'>
+        <section className='py-8 min-h-screen'>
           <div className='flex justify-end'>
             <ThemeToggle />
           </div>
           {!isSearched ? (
             <HeroSection setShow={setIsSearched} setSearch={setSearch} />
           ) : (
-            <SearchResultsSection search={search} setSearch={setSearch} />
+            <SearchResultsSection
+              search={search}
+              setIsSearched={setIsSearched}
+            />
           )}
         </section>
       </Container>
