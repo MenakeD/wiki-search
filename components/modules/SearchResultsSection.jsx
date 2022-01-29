@@ -30,8 +30,8 @@ const SearchResultsSection = ({ search, setSearch, setIsSearched }) => {
   }
   return (
     <section>
-      <div className='sticky top-0 left-0 '>
-        <div className='md:flex md:justify-between mt-5 md:mt-5 md:items-center  dark:bg-dark-background-primary bg-light-background-primary transition-all ease-out duration-500 pt-4 md:pb-2 pb-4'>
+      <div className='sticky top-0 left-0  dark:bg-dark-background-primary bg-light-background-primary transition-all ease-out duration-500 '>
+        <div className='md:flex md:justify-between mt-5 md:mt-5 md:items-center  pt-4 md:pb-2 pb-4'>
           <div
             className='flex space-x-6 items-center justify-center cursor-pointer pb-8 md:pb-0  '
             onClick={() => {
