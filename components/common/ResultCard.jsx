@@ -29,7 +29,7 @@ const ResultCard = ({ result }) => {
 
   return (
     <div>
-      <h2 className='dark:text-dark-text-result-heading text-light-text-result-heading text-2xl font-medium py-0.5 hover:underline cursor-pointer flex'>
+      <h2 className='dark:text-dark-text-result-heading text-light-text-result-heading text-xl sm:text-2xl font-medium py-0.5 hover:underline cursor-pointer flex'>
         <a
           target='_blank'
           rel='noreferrer'
@@ -44,7 +44,7 @@ const ResultCard = ({ result }) => {
             <BsThreeDots className='animate-ping dark:text-dark-text-result-link text-black' />
           </div>
         ) : (
-          <h3 className='dark:text-dark-text-result-link text-light-text-result-link text-lg'>
+          <h3 className='dark:text-dark-text-result-link text-light-text-result-link text-base sm:text-lg truncate'>
             <a target='_blank' rel='noreferrer' href={page.fullurl}>
               {page.fullurl}
             </a>
@@ -53,10 +53,10 @@ const ResultCard = ({ result }) => {
       </div>
 
       <div
-        className='dark:text-dark-text-result-description text-light-text-result-description text-lg py-1 searchmatch'
+        className='dark:text-dark-text-result-description text-light-text-result-description text-base sm:text-lg py-1 searchmatch'
         dangerouslySetInnerHTML={{ __html: result.snippet }}
       ></div>
-      <h4 className='dark:text-dark-text-result-date text-light-text-result-date text-base py-0.5'>
+      <h4 className='dark:text-dark-text-result-date text-light-text-result-date text-sm  sm:text-base py-0.5'>
         {dayjs(result.timestamp).format('Do MMMM YYYY')}
       </h4>
     </div>

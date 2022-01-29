@@ -5,6 +5,7 @@ import Button from '../common/Button'
 import { useForm } from 'react-hook-form'
 import { useEffect, useState } from 'react'
 import SearchResults from './SearchResults'
+import { BiSearch } from 'react-icons/bi'
 
 const SearchResultsSection = ({ search, setSearch, setIsSearched }) => {
   const [loading, setLoading] = useState(true)
@@ -29,16 +30,18 @@ const SearchResultsSection = ({ search, setSearch, setIsSearched }) => {
   }
   return (
     <section>
-      <div>
-        <div className='flex justify-between my-8 items-center'>
+      <div className='sticky top-0 left-0 '>
+        <div className='md:flex md:justify-between mt-5 md:mt-5 md:items-center  dark:bg-dark-background-primary bg-light-background-primary transition-all ease-out duration-500 pt-4 md:pb-2 pb-4'>
           <div
-            className='flex space-x-6 items-center cursor-pointer  '
+            className='flex space-x-6 items-center justify-center cursor-pointer pb-8 md:pb-0  '
             onClick={() => {
               setIsSearched(false)
             }}
           >
-            <Image src={Logo} width={56} height={56} alt='wiki-logo' />
-            <h1 className='font-hoelfer text-3xl dark:text-white-base text-black '>
+            <div className='hidden md:block'>
+              <Image src={Logo} width={56} height={56} alt='wiki-logo' />
+            </div>
+            <h1 className='font-hoelfer text-2xl pt-4 md:pt-0 md:text-3xl dark:text-white-base text-black '>
               Wiki Search
             </h1>
           </div>
@@ -52,22 +55,25 @@ const SearchResultsSection = ({ search, setSearch, setIsSearched }) => {
               register={register}
               name='search'
               type='text'
+              width='w-full md:w-96 '
               errors={errors}
             />
             <Button type='submit' width=''>
-              <p className='text-white-base'>Search</p>
+              <BiSearch className='text-lg block md:hidden' />
+              <p className='text-white-base hidden md:block'>Search</p>
             </Button>
           </form>
         </div>
-        <div>
-          <SearchResults
-            search={search}
-            loading={loading}
-            setLoading={setLoading}
-            sliceNo={sliceNo}
-            setSliceNo={setSliceNo}
-          />
-        </div>
+      </div>
+
+      <div>
+        <SearchResults
+          search={search}
+          loading={loading}
+          setLoading={setLoading}
+          sliceNo={sliceNo}
+          setSliceNo={setSliceNo}
+        />
       </div>
     </section>
   )

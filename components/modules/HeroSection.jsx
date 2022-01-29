@@ -26,7 +26,7 @@ const HeroSection = ({ setShow, setSearch }) => {
         Wiki Search
       </h1>
       <form
-        className='py-8 sm:flex sm:space-x-4 w-full sm:w-fit'
+        className='py-8 md:flex md:space-x-4 w-full md:w-fit'
         onSubmit={handleSubmit(onSubmit)}
         autoComplete='off'
       >
@@ -35,10 +35,10 @@ const HeroSection = ({ setShow, setSearch }) => {
           register={register}
           name='search'
           type='text'
-          width='sm:w-96 w-full'
+          width='md:w-96 w-full'
           errors={errors}
         />
-        <div className='my-6 sm:my-0 flex justify-center'>
+        <div className='my-6 md:my-0 flex justify-center'>
           <Button type='submit' width=''>
             <div className='flex items-center space-x-2'>
               <BiSearch className='text-lg' />
