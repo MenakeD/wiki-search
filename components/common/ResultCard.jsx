@@ -31,7 +31,11 @@ const ResultCard = ({ result }) => {
   return (
     <div>
       <h2 className='dark:text-dark-text-result-heading text-light-text-result-heading text-2xl font-medium py-0.5 hover:underline cursor-pointer flex'>
-        <a target='_blank' rel='noreferrer' href={page.fullurl}>
+        <a
+          target='_blank'
+          rel='noreferrer'
+          href={`http://en.wikipedia.org/?curid=${result.pageid}`}
+        >
           {result.title}
         </a>
       </h2>
