@@ -21,6 +21,7 @@ const Home = () => {
           ) : (
             <SearchResultsSection
               search={search}
+              setSearch={setSearch}
               setIsSearched={setIsSearched}
             />
           )}
