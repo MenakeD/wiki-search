@@ -25,12 +25,10 @@ const SearchResults = ({
       if (response.ok) {
         const results = await response.json()
         setTotalHits(results.query.searchinfo.totalhits)
-        console.log('r: ', results.query.search)
         setResults(results.query.search)
         setLoading(false)
       }
     }
-    console.log('s: ', search)
     getResults()
   }, [search, setLoading])
 

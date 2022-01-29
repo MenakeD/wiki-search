@@ -10,7 +10,6 @@ const ResultCard = ({ result }) => {
 
   useEffect(() => {
     const getUrl = async () => {
-      console.log('result:', result)
       const request =
         'https://en.wikipedia.org/w/api.php' +
         `?origin=*&action=query&prop=info&pageids=${result.pageid}&inprop=url&format=json`
