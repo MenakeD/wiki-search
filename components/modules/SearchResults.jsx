@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Button from '../common/Button'
 import ResultCard from '../common/ResultCard'
 import { RiLoader5Line } from 'react-icons/ri'
+import { animateScroll as scroll } from 'react-scroll'
 
 const SearchResults = ({
   search,
@@ -46,7 +47,7 @@ const SearchResults = ({
           <RiLoader5Line className='text-7xl animate-spin dark:text-dark-text-result-heading text-black' />
         </div>
       ) : (
-        <div className='w-3/4 md:w-2/3 mx-auto mt-8 md:mt-12 grid grid-cols-1 gap-5 sm:gap-6 md:gap-7'>
+        <div className='w-3/4 md:w-2/3 mx-auto mt-8 md:mt-12 pb-4  grid grid-cols-1 gap-5 sm:gap-6 md:gap-7'>
           <div className='flex justify-start'>
             <p className='text-xs sm:text-sm dark:text-dark-text-result-date text-light-text-result-date'>
               {totalHits} results found
@@ -64,6 +65,7 @@ const SearchResults = ({
                 onClick={() => {
                   if (sliceNo < resultLimit) {
                     setSliceNo(sliceNo + 10)
+                    scroll.scrollMore(400)
                   }
                 }}
               >

@@ -28,7 +28,7 @@ const ResultCard = ({ result }) => {
   }, [result])
 
   return (
-    <div>
+    <div className=''>
       <h2 className='dark:text-dark-text-result-heading text-light-text-result-heading text-xl sm:text-2xl font-medium py-0.5 hover:underline cursor-pointer flex'>
         <a
           target='_blank'
