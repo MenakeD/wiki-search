@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <Layout title='Wiki Search'>
       <Container>
-        <section className='py-8 min-h-screen flex flex-col'>
+        <section className='pt-8 min-h-screen flex flex-col'>
           <div className='flex justify-end'>
             <ThemeToggle />
           </div>
