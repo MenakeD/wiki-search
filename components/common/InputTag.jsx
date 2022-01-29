@@ -5,9 +5,10 @@ const InputTag = ({
   name,
   validation,
   errors = [],
+  width = 'w-96',
 }) => {
   return (
-    <div className='w-96'>
+    <div className={`${width}`}>
       <input
         id={name}
         type={type}

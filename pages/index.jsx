@@ -12,12 +12,14 @@ const Home = () => {
   return (
     <Layout title='Wiki Search'>
       <Container>
-        <section className='py-8 min-h-screen'>
+        <section className='py-8 min-h-screen flex flex-col'>
           <div className='flex justify-end'>
             <ThemeToggle />
           </div>
           {!isSearched ? (
-            <HeroSection setShow={setIsSearched} setSearch={setSearch} />
+            <div className=' flex-grow flex flex-col justify-center'>
+              <HeroSection setShow={setIsSearched} setSearch={setSearch} />
+            </div>
           ) : (
             <SearchResultsSection
               search={search}

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import InputTag from '../common/InputTag'
 import Button from '../common/Button'
 import { useForm } from 'react-hook-form'
+import { BiSearch } from 'react-icons/bi'
 
 const HeroSection = ({ setShow, setSearch }) => {
   const {
@@ -19,13 +20,13 @@ const HeroSection = ({ setShow, setSearch }) => {
   }
 
   return (
-    <div className='flex flex-col items-center my-16'>
+    <div className='flex flex-col items-center '>
       <Image src={Logo} width={180} height={180} alt='Wiki Logo' />
-      <h1 className='font-hoelfer text-5xl py-8 dark:text-white-base text-black '>
+      <h1 className='font-hoelfer text-4xl sm:text-5xl py-8 dark:text-white-base text-black '>
         Wiki Search
       </h1>
       <form
-        className='py-8 flex space-x-4'
+        className='py-8 sm:flex sm:space-x-4 w-full sm:w-fit'
         onSubmit={handleSubmit(onSubmit)}
         autoComplete='off'
       >
@@ -34,11 +35,17 @@ const HeroSection = ({ setShow, setSearch }) => {
           register={register}
           name='search'
           type='text'
+          width='sm:w-96 w-full'
           errors={errors}
         />
-        <Button type='submit' width=''>
-          <p className='text-white-base'>Search</p>
-        </Button>
+        <div className='my-6 sm:my-0 flex justify-center'>
+          <Button type='submit' width=''>
+            <div className='flex items-center space-x-2'>
+              <BiSearch className='text-lg' />
+              <p className='text-white-base'>Search</p>
+            </div>
+          </Button>
+        </div>
       </form>
     </div>
   )
