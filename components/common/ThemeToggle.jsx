@@ -9,7 +9,12 @@ const ThemeToggle = () => {
 
   useEffect(() => {
     setisMounted(true)
-    setTheme('dark')
+    const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)')
+    if (darkThemeMq.matches) {
+      setTheme('dark')
+    } else {
+      setTheme('light')
+    }
   }, [setTheme])
 
   return (
