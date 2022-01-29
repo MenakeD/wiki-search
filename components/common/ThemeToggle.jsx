@@ -9,13 +9,14 @@ const ThemeToggle = () => {
 
   useEffect(() => {
     setisMounted(true)
-  }, [])
+    setTheme('dark')
+  }, [setTheme])
 
   return (
     <>
       {isMounted && (
         <div className='flex  dark:bg-dark-background-secondary  bg-light-background-secondary px-4 py-3 space-x-5  rounded-full items-center shadow-sm dark:shadow-dark-shadow/10 shadow-light-shadow/25 '>
-          {theme === 'dark' ? (
+          {theme && theme === 'dark' ? (
             <>
               <BsFillCircleFill
                 className='text-2xl dark:text-white-base shadow-sm  cursor-pointer '
