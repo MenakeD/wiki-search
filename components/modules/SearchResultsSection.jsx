@@ -59,7 +59,7 @@ const SearchResultsSection = ({ search, setSearch, setIsSearched }) => {
               errors={errors}
             />
             <Button type='submit' width=''>
-              <BiSearch className='text-lg block md:hidden' />
+              <BiSearch className='text-lg text-white-base block md:hidden' />
               <p className='text-white-base hidden md:block'>Search</p>
             </Button>
           </form>

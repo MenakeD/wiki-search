@@ -41,7 +41,7 @@ const HeroSection = ({ setShow, setSearch }) => {
         <div className='my-6 md:my-0 flex justify-center'>
           <Button type='submit' width=''>
             <div className='flex items-center space-x-2'>
-              <BiSearch className='text-lg' />
+              <BiSearch className='text-lg text-white-base' />
               <p className='text-white-base'>Search</p>
             </div>
           </Button>

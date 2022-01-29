@@ -42,7 +42,7 @@ const SearchResults = ({
   return (
     <section className=''>
       {loading ? (
-        <div className='flex  justify-center w-full my-52 '>
+        <div className='flex  justify-center w-full py-36 md:py-52'>
           <RiLoader5Line className='text-7xl animate-spin dark:text-dark-text-result-heading text-black' />
         </div>
       ) : (
