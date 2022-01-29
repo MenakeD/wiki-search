@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form'
 import { useEffect, useState } from 'react'
 import SearchResults from './SearchResults'
 import { BiSearch } from 'react-icons/bi'
+import { animateScroll as scroll } from 'react-scroll/modules'
 
 const SearchResultsSection = ({ search, setSearch, setIsSearched }) => {
   const [loading, setLoading] = useState(true)
@@ -23,6 +24,7 @@ const SearchResultsSection = ({ search, setSearch, setIsSearched }) => {
 
   const onSubmit = (data) => {
     if (data.search !== search) {
+      scroll.scrollToTop()
       setLoading(true)
       setSearch(data.search)
       setSliceNo(10)
