@@ -3,15 +3,23 @@ import Button from '../common/Button'
 import ResultCard from '../common/ResultCard'
 import { RiLoader5Line } from 'react-icons/ri'
 
-const SearchResults = ({ search, loading, setLoading }) => {
+const SearchResults = ({
+  search,
+  loading,
+  setLoading,
+  setSliceNo,
+  sliceNo,
+}) => {
   const [totalHits, setTotalHits] = useState(0)
   const [results, setResults] = useState()
+  const [dispalyedResults, setDispalyedResults] = useState()
+  const resultLimit = 50
 
   useEffect(() => {
     const getResults = async () => {
       const request =
         'https://en.wikipedia.org/w/api.php' +
-        `?origin=*&action=query&list=search&srsearch=${search}&format=json&srlimit=10`
+        `?origin=*&action=query&list=search&srsearch=${search}&format=json&srlimit=${resultLimit}`
 
       const response = await fetch(request)
       if (response.ok) {
@@ -26,10 +34,17 @@ const SearchResults = ({ search, loading, setLoading }) => {
     getResults()
   }, [search, setLoading])
 
+  useEffect(() => {
+    if (results) {
+      var sliced_results = results.slice(0, sliceNo)
+      setDispalyedResults(sliced_results)
+    }
+  }, [results, sliceNo])
+
   return (
     <section className=''>
       {loading ? (
-        <div className='flex justify-center w-full my-48 '>
+        <div className='flex justify-center w-full my-52 '>
           <RiLoader5Line className='text-7xl animate-spin dark:text-dark-text-result-heading text-black' />
         </div>
       ) : (
@@ -39,13 +54,25 @@ const SearchResults = ({ search, loading, setLoading }) => {
               {totalHits} results found
             </p>
           </div>
-          {results &&
-            results.map((result) => (
+          {dispalyedResults &&
+            dispalyedResults.map((result) => (
               <ResultCard key={result.pageid} result={result} />
             ))}
-          <div className='flex justify-center w-full my-8'>
-            <Button width='w-1/2 text-white-base'> More Results </Button>
-          </div>
+          {sliceNo !== resultLimit && (
+            <div className='flex justify-center w-full my-8'>
+              <Button
+                type='button'
+                width='w-1/2 text-white-base'
+                onClick={() => {
+                  if (sliceNo < resultLimit) {
+                    setSliceNo(sliceNo + 10)
+                  }
+                }}
+              >
+                More Results
+              </Button>
+            </div>
+          )}
         </div>
       )}
     </section>

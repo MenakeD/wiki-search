@@ -8,6 +8,7 @@ import SearchResults from './SearchResults'
 
 const SearchResultsSection = ({ search, setSearch, setIsSearched }) => {
   const [loading, setLoading] = useState(true)
+  const [sliceNo, setSliceNo] = useState(10)
   const {
     register,
     handleSubmit,
@@ -23,6 +24,7 @@ const SearchResultsSection = ({ search, setSearch, setIsSearched }) => {
     if (data.search !== search) {
       setLoading(true)
       setSearch(data.search)
+      setSliceNo(10)
     }
   }
   return (
@@ -62,6 +64,8 @@ const SearchResultsSection = ({ search, setSearch, setIsSearched }) => {
             search={search}
             loading={loading}
             setLoading={setLoading}
+            sliceNo={sliceNo}
+            setSliceNo={setSliceNo}
           />
         </div>
       </div>

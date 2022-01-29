@@ -3,10 +3,12 @@ const Button = ({
   type = 'button',
   width = 'w-full',
   padding = 'px-8 py-2 ',
+  onClick = () => {},
 }) => {
   return (
     <button
       type={type}
+      onClick={onClick}
       className={`dark:bg-dark-button-primary bg-light-button-primary rounded-xl ${padding} ${width} transition-colors ease-out duration-300  shadow-md dark:shadow-dark-shadow/10`}
     >
       {children}

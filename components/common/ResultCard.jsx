@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
-
+import { BsThreeDots } from 'react-icons/bs'
 var advancedFormat = require('dayjs/plugin/advancedFormat')
 dayjs.extend(advancedFormat)
 
 const ResultCard = ({ result }) => {
   const [page, setPage] = useState('')
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const getUrl = async () => {
@@ -20,6 +21,7 @@ const ResultCard = ({ result }) => {
         const pageId = result.pageid
 
         setPage(urlResult.query.pages[pageId])
+        setLoading(false)
       }
     }
 
@@ -34,11 +36,17 @@ const ResultCard = ({ result }) => {
         </a>
       </h2>
       <div className='py-0.5'>
-        <h3 className='dark:text-dark-text-result-link text-light-text-result-link text-lg'>
-          <a target='_blank' rel='noreferrer' href={page.fullurl}>
-            {page.fullurl}
-          </a>
-        </h3>
+        {loading ? (
+          <div className='mx-2 py-1.5'>
+            <BsThreeDots className='animate-ping dark:text-dark-text-result-link text-black' />
+          </div>
+        ) : (
+          <h3 className='dark:text-dark-text-result-link text-light-text-result-link text-lg'>
+            <a target='_blank' rel='noreferrer' href={page.fullurl}>
+              {page.fullurl}
+            </a>
+          </h3>
+        )}
       </div>
 
       <div
