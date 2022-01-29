@@ -57,7 +57,7 @@ const SearchResults = ({
               <ResultCard key={result.pageid} result={result} />
             ))}
           {sliceNo !== resultLimit && results && results.length > 10 && (
-            <div className='flex justify-center w-full mt-8'>
+            <div className='flex justify-center w-full mt-8 mb-2'>
               <Button
                 type='button'
                 width='w-full md:w-1/2 text-white-base'
